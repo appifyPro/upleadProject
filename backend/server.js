@@ -4,15 +4,20 @@ const mongoose = require("mongoose");
 const cloudinary = require("cloudinary").v2;
 const NodeCache = require("node-cache");
 const bodyParser = require("body-parser");
-const { subscriptionRoutes } = require("./routes/subscriptionRoute");
+const { csvFileRoutes } = require("./routes/csvFileRoute");
 const { userRoutes } = require("./routes/userRoutes");
-
 const fileUpload = require("express-fileupload");
 const formRoutes = require("./routes/formRoutes");
 require("dotenv").config();
 const stripe = require("stripe")(
   "sk_test_51NQ6emFiqR7NdfZALVfJz441sKSJddq4DepocXUtFi2v9E8UAc92p9J3DR9hETvHA6kEIqez7GsGZaSz88ZkBvE300X0iLAfvm"
 );
+cloudinary.config({
+  cloud_name: "dsjrmblq0",
+  api_key: "363388135944552",
+  api_secret: "ZaqJkMcYaLpLgLUyUkNwaJII100",
+});
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
@@ -39,7 +44,7 @@ app.use(
   })
 );
 
-app.use("/api/v1/subscription", subscriptionRoutes);
+app.use("/api/v1/csvFile", csvFileRoutes);
 app.use("/api/v1/user", userRoutes);
 app.use("/api/v1/form", formRoutes);
 

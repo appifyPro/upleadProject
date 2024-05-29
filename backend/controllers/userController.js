@@ -2,6 +2,7 @@ const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
+const cloudinary = require("cloudinary").v2;
 exports.register = async (req, res) => {
   try {
     const { firstName, lastName, email, password, subscription } = req.body;
@@ -79,6 +80,7 @@ exports.login = async (req, res) => {
     // Omit the password field from the user object in the response
     const userWithoutPassword = { ...user._doc };
     delete userWithoutPassword.password;
+    delete userWithoutPassword.searchQueries;
 
     res.status(200).cookie("token", token, options).json({
       success: true,
@@ -204,7 +206,21 @@ exports.deleteUser = async (req, res) => {
 exports.updateUser = async (req, res) => {
   try {
     const userId = req.params.id;
-    const updates = req.body;
+    const updates = { ...req.body };
+
+    if (req.files && req.files.photo) {
+      const file = req.files.photo;
+      const result = await cloudinary.uploader.upload(file.tempFilePath);
+
+      if (!result) {
+        return res.status(500).json({
+          success: false,
+          message: "Failed to upload image to Cloudinary.",
+        });
+      }
+
+      updates.photo = result.secure_url;
+    }
 
     const user = await User.findByIdAndUpdate(userId, updates, {
       new: true,
