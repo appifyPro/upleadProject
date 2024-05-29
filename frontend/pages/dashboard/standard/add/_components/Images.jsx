@@ -2,7 +2,7 @@ import Image from "next/image";
 import { roomInformationInitialState } from "../data";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import fileUpload from "../../../../../../../public/file-upload-states.png";
+// import fileUpload from "../../../../../../../public/file-upload-states.png";
 
 export default function SchoolImages({
   formData,
@@ -146,13 +146,13 @@ export default function SchoolImages({
               htmlFor="image-upload"
               className="relative cursor-pointer p-20 h-[200px] w-[270px] border-dashed border-[1.5px] rounded-2xl  border-[#DEDEDE] flex br-5 items-center justify-center flex-col"
             >
-              <Image
+              {/* <Image
                 src={fileUpload}
                 width={1000}
                 height={1000}
                 alt="file upload"
                 className="!h-[3.5rem] !w-[3.5rem] object-contain !max-w-none"
-              />
+              /> */}
               <div className="flex flex-col absolute bottom-6">
                 <p className="text-[#98A2B3] text-xs text-[rgba(255,69,18,1)] text-center">
                   Click to upload{" "}

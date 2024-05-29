@@ -114,9 +114,9 @@ export default function DashboardStandard() {
                 </span>
               </label>
 
-              {/* <div className="lg:ml-auto">
+              <div className="lg:ml-auto">
                 <Link
-                  href="/adminPanel/property/add"
+                  href="/dashboard/standard/add"
                   className="bg-[#FF4512] max-w-max  flex flex-row font-medium items-center gap-1.5 rounded-lg px-6 py-2.5 shadow-md text-white mt-4"
                 >
                   <svg
@@ -135,7 +135,7 @@ export default function DashboardStandard() {
                   </svg>
                   Add New Property
                 </Link>
-              </div> */}
+              </div>
             </div>
 
             <div className="flex w-full flex-row gap-x-4 md:gap-3 lg:gap-4 h-max"></div>

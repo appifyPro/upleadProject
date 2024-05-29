@@ -1,8 +1,10 @@
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 export default function PricingDetail() {
+  const router = useRouter();
   const cardContent = [
     {
       heading: "Test Drive",
@@ -124,6 +126,7 @@ export default function PricingDetail() {
                 </div>
                 <div className="border-b-[1px] pt-8 pb-8">
                   <button
+                    onClick={() => router.push("/dashboard/changeSubscription")}
                     className={`rounded-full w-full text-lg tracking-wider font-bold font-cerapro text-[#002c9b] h-14 bg-transparent hover:bg-[#69727a] hover:text-white border-[1px] border-[#69727a] ${
                       index === 3 ? "bg-white text-[#69727a]" : ""
                     }`}

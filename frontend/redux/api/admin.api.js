@@ -77,6 +77,17 @@ const api = createApi({
     getAllUsers: builder.query({
       query: () => "user/getAllUsers",
     }),
+    createCsvFile: builder.mutation({
+      query: (credentials) => ({
+        url: "csvFile/create",
+        method: "POST",
+        body: credentials,
+      }),
+    }),
+    getAllFiles: builder.query({
+      query: () => "csvFile/getAllFiles",
+      transformResponse: (response) => response?.data,
+    }),
 
     deleteProperty: builder.mutation({
       query: (propertyId) => ({

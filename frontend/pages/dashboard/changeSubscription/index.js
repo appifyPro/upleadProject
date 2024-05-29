@@ -143,7 +143,7 @@ const ChangeSubscription = () => {
           </div>
         </form>
         <div className="mt-6 flex gap-8">
-          <Link href="/view-plans">
+          <Link href="/PricingDetail">
             <p className="text-neutral-700 text-sm underline leading-4 tracking-wides">
               View Plans
             </p>

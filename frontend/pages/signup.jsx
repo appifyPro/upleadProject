@@ -112,12 +112,12 @@ const signup = () => {
                   </div>
                 </div>
                 <div
-                  onClick={() => handleClick("b")}
-                  className={`lg:w-[360px] w-full h-[100px] mb-3 cursor-pointer relative hover:border-[#002c9b] border-2 rounded-md ${
-                    clicked === "b" ? "border-[#002c9b]" : "border-gray-300"
+                  onClick={() => handleClick("")}
+                  className={` pointer-events-none opacity-50 lg:w-[360px] w-full h-[100px] mb-3  relative hover:border-[#002c9b] border-2 rounded-md ${
+                    clicked === "" ? "border-[#002c9b]" : "border-gray-300"
                   }`}
                 >
-                  {clicked === "b" && (
+                  {clicked === "" && (
                     <div className="absolute right-2 top-2">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -144,12 +144,12 @@ const signup = () => {
                   </div>
                 </div>
                 <div
-                  onClick={() => handleClick("c")}
-                  className={`lg:w-[360px] w-full h-[100px] mb-3  cursor-pointer relative hover:border-[#002c9b] border-2 rounded-md ${
-                    clicked === "c" ? "border-[#002c9b]" : "border-gray-300"
+                  onClick={() => handleClick("")}
+                  className={`  pointer-events-none opacity-50  lg:w-[360px] w-full h-[100px] mb-3  cursor-pointer relative hover:border-[#002c9b] border-2 rounded-md ${
+                    clicked === "" ? "border-[#002c9b]" : "border-gray-300"
                   }`}
                 >
-                  {clicked === "c" && (
+                  {clicked === "" && (
                     <div className="absolute right-2 top-2">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -176,12 +176,13 @@ const signup = () => {
                   </div>
                 </div>
                 <div
-                  onClick={() => handleClick("d")}
-                  className={`lg:w-[360px] w-full h-[100px] mb-3  cursor-pointer relative hover:border-[#002c9b] border-2 rounded-md ${
-                    clicked === "d" ? "border-[#002c9b]" : "border-gray-300"
+                  onClick={() => handleClick("")}
+                  
+                  className={` pointer-events-none opacity-50  lg:w-[360px] w-full h-[100px] mb-3  cursor-pointer relative hover:border-[#002c9b] border-2 rounded-md ${
+                    clicked === "" ? "border-[#002c9b]" : "border-gray-300"
                   }`}
                 >
-                  {clicked === "d" && (
+                  {clicked === "" && (
                     <div className="absolute right-2 top-2">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

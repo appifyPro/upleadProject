@@ -1,7 +1,7 @@
 import { MenuItem, Select } from "@mui/material";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
-import fileUpload from "../../../../../../../public/file-upload-states.png";
+// import fileUpload from "../../../../../../../public/file-upload-states.png";
 import { useEffect, useState } from "react";
 import ListItemText from "@mui/material/ListItemText";
 import Checkbox from "@mui/material/Checkbox";
@@ -655,13 +655,13 @@ export default function SchoolInformation({
                   htmlFor="image-upload"
                   className="relative cursor-pointer p-20 h-[200px] w-[270px] border-dashed border-[1.5px] rounded-2xl  border-[#DEDEDE] flex br-5 items-center justify-center flex-col"
                 >
-                  <Image
+                  {/* <Image
                     src={fileUpload}
                     width={500}
                     height={500}
                     alt="file upload"
                     className="!h-[3.5rem] !w-[3.5rem] object-contain !max-w-none"
-                  />
+                  /> */}
                   <div className="flex flex-col absolute bottom-6">
                     <p className="text-[#98A2B3] text-xs text-[rgba(255,69,18,1)] text-center">
                       Click to upload{" "}

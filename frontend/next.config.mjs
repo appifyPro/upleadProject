@@ -4,7 +4,12 @@ import path from "path";
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["www.uplead.com", "v.fastcdn.co", "png.pngtree.com"],
+    domains: [
+      "www.uplead.com",
+      "v.fastcdn.co",
+      "png.pngtree.com",
+      "res.cloudinary.com",
+    ],
   },
   webpack: (config, { isServer }) => {
     config.resolve.alias["@"] = path.resolve(".");

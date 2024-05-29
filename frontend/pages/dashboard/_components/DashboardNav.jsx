@@ -40,15 +40,26 @@ const DashboardNav = memo(() => {
 
   return (
     <nav className="w-full z-[3] sticky top-0 bg-white flex justify-between py-2 md:py-3 px-3 md:px-4 xl:px-6 shadow items-center">
-      <span className="flex flex-col items-center gap-x-1.5">
-        {/* <Link href="/" className="md:hidden block">
-          <Image width={35} height={35} alt="Logo" src="/logo.svg" />
-        </Link> */}
-        <h1 className="text-xl font-bold -mb-1 text-slate-700 capitalize">
-          Hi {loggedInUser?.firstName || ""} {loggedInUser?.lastName || ""}
-        </h1>
-        <p className="text-zinc-500 text-sm">Welcome back!</p>
-      </span>
+      <div className="flex items-center gap-2">
+        {loggedInUser?.photo ? (
+          <Image
+            width={50}
+            height={50}
+            alt="Logo"
+            src={loggedInUser?.photo}
+            className="rounded-sm"
+          />
+        ) : (
+          ""
+        )}
+
+        <span className="flex flex-col items-center gap-x-1.5">
+          <h1 className="text-xl uppercase font-bold -mb-1 text-slate-700 capitalize">
+            Hi {loggedInUser?.firstName || ""} {loggedInUser?.lastName || ""}
+          </h1>
+          <p className="text-zinc-500 text-sm">Welcome back!</p>
+        </span>
+      </div>
       <button
         onClick={() => setIsNavOpen(true)}
         className="block md:hidden text-primary border border-primary/60 px-2 py-0.5 rounded"
@@ -116,13 +127,13 @@ const DashboardNav = memo(() => {
             <MenuItem className="!p-0 !hidden" value={0}>
               {loggedInUser?.firstName + " " + loggedInUser?.lastName}
             </MenuItem>
-            <MenuItem
+            {/* <MenuItem
               onClick={handleNaviageToSettings}
               className="font-semibold text-zinc-600"
               value={10}
             >
               Settings
-            </MenuItem>
+            </MenuItem> */}
             <MenuItem
               onClick={handleSignOut}
               className="font-semibold text-zinc-600"

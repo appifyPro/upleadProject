@@ -2,13 +2,24 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
+  const router = useRouter();
+  const loggedInUser =
+    typeof window !== "undefined" &&
+    JSON.parse(localStorage.getItem("userToken"));
   const [NavbarClicked, setNavbarClicked] = useState(false);
   function handleClick() {
     setNavbarClicked(!NavbarClicked);
     console.log(NavbarClicked);
   }
+  const handleSignOut = () => {
+    if (typeof window !== "undefined" && loggedInUser) {
+      localStorage.removeItem("userToken");
+      router.push("/");
+    }
+  };
   return (
     <nav className="w-full  border-b">
       <div className="px-6 m-auto flex justify-between h-[68px] items-center ">
@@ -26,7 +37,7 @@ const Navbar = () => {
             <Link href="/PricingDetail" className="hover:text-[#002c9b]">
               <li>PLANS</li>
             </Link>
-            <Link href="/" className="hover:text-[#002c9b]">
+            {/* <Link href="/" className="hover:text-[#002c9b]">
               <li>ON THE MENU</li>
             </Link>
             <Link href="/" className="hover:text-[#002c9b]">
@@ -34,24 +45,44 @@ const Navbar = () => {
             </Link>
             <Link href="/" className="hover:text-[#002c9b]">
               <li>GIFT CARDS</li>
-            </Link>
+            </Link> */}
             <Link href="/contact-us" className="hover:text-[#002c9b]">
               <li>Contact Us</li>
             </Link>
           </ul>
         </div>
         <div>
-          <Link
-            href="/login"
-            className="hover:text-[#002c9b] text-gray-500 text-sm mr-5"
-          >
-            LOG IN{" "}
-          </Link>
-          <Link href="/signup">
-            <button className="font-semibold bg-orange-600 text-white text-sm w-[136px] h-[38px] hover:opacity-90 rounded-sm max-md:hidden">
-              SIGN UP
-            </button>
-          </Link>
+          {loggedInUser ? (
+            <>
+              <Link
+                href="/dashboard"
+                className="hover:text-[#002c9b] text-gray-500 text-sm mr-5"
+              >
+                Dashboard
+              </Link>
+
+              <button
+                onClick={handleSignOut}
+                className="font-semibold bg-orange-600 text-white text-sm w-[136px] h-[38px] hover:opacity-90 rounded-sm max-md:hidden"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link
+                href="/login"
+                className="hover:text-[#002c9b] text-gray-500 text-sm mr-5"
+              >
+                LOG IN{" "}
+              </Link>
+              <Link href="/signup">
+                <button className="font-semibold bg-orange-600 text-white text-sm w-[136px] h-[38px] hover:opacity-90 rounded-sm max-md:hidden">
+                  SIGN UP
+                </button>
+              </Link>
+            </>
+          )}
         </div>
         <div
           className="hidden max-md:block border-[#60cde8bb] p-[7px] border w-10 h-10 hover:bg-[#d4e6eb62] rounded-md cursor-pointer relative z-30"

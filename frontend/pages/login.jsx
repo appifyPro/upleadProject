@@ -108,7 +108,7 @@ const login = () => {
                 Remember Me
               </label>
             </div>
-            <div className=" flex items-center">
+            {/* <div className=" flex items-center">
               <input
                 id="is_admin"
                 name="isAdmin"
@@ -123,7 +123,7 @@ const login = () => {
               >
                 Admin
               </label>
-            </div>
+            </div> */}
             {/* <div className="text-sm tracking-[1px]">
             <a
               href="#"
@@ -264,7 +264,7 @@ const login = () => {
           <span>Sign in with Facebook</span>
         </button> */}
         <div className="mt-6 text-center text-sm text-[#6A6D75]">
-          Don't have an account?
+          Do not have an account?
           <a href="/signup" className="ml-[3px] text-[#6A6D75]">
             Sign up
           </a>
